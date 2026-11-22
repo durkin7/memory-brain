@@ -1,0 +1,29 @@
+# Extra secret rules for this vault.
+#
+# useDefault turns on gitleaks' built-in rules: AWS keys, GitHub tokens,
+# private keys, and many other known secret shapes.
+# The rule below also catches homemade lines such as:
+#   password = "a-long-value"
+#   api_key = "a-long-value"
+
+title = "memory-brain"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "memory-brain-assigned-secret"
+description = "Password, API key, or token assigned a long value"
+regex = '''(?i)(?:password|passwd|api[_-]?key|apikey|secret|access[_-]?token|auth[_-]?token|client[_-]?secret)\s*[:=]\s*['"][^'"\s]{12,}['"]'''
+keywords = [
+  "password",
+  "passwd",
+  "api_key",
+  "api-key",
+  "apikey",
+  "secret",
+  "access_token",
+  "access-token",
+  "auth_token",
+  "client_secret",
+]
