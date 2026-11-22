@@ -1,0 +1,15 @@
+# Obsidian writes these on each computer. They are not part of the shared vault.
+.obsidian/workspace*.json
+.obsidian/cache
+
+# Obsidian's local trash.
+.trash/
+
+# macOS folder metadata.
+.DS_Store
+
+# Secrets and keys. Never commit these.
+.env*
+*.pem
+*.key
+id_rsa*
